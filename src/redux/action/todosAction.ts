@@ -1,24 +1,30 @@
 import { ITodo } from '../../components/TextInput/TextInput.model'
 import { CREATE_TODO, COMPLETED_TODO, DELETE_TODO, CHECK_ALL, UNCHECK_ALL, COMPLETED_TODOS, ACTIVE_TODOS, ALL_TODOS, DELETE_COMPLETED_TODOS } from '../types'
 
+export interface IActionCreators {
+  type: string
+  todo: ITodo
+  id: number
+}
+
 export function createTodo(todo: ITodo) {
   return {
     type: CREATE_TODO,
-    payload: todo
+    todo
   }
 }
 
 export function completedTodo(id: number) {
   return {
     type: COMPLETED_TODO,
-    payload: id
+    id
   }
 }
 
 export function deleteTodo(id: number) {
   return {
     type: DELETE_TODO,
-    payload: id
+    id
   }
 }
 
